@@ -5,8 +5,21 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-3 bg-info p-2 text-white">
-      {{ categories.length }} Categroies
+    <div class="col-3 p-2">
+      <button
+        class="btn btn-block btn-outline-promary"
+        (click)="changeCategory()"
+      >
+        All
+      </button>
+      <button
+        *ngFor="let cat of categories"
+        class="btn btn-block btn-outline-promary"
+        [class.active]="cat === selectCateory"
+        (click)="changeCategory(cat)"
+      >
+        {{ cat }}
+      </button>
     </div>
     <div class="col-9 p-2">
       <div class="card m-1 p-1 bg-light" *ngFor="let product of products">
