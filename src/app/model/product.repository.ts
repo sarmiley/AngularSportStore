@@ -17,9 +17,9 @@ export class ProductRepository {
     });
   }
 
-  getProducts(category: string = ''): Product[] {
+  getProducts(category: string | null = null): Product[] {
     return this.products.filter(
-      (p) => category == null || category == p.category
+      (p) => category === null || category === p.category
     );
   }
 
