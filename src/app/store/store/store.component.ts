@@ -25,14 +25,20 @@ export class StoreComponent {
     return this.repo.getCategories();
   }
 
-  get pageNumbers(): number[] {
-    return Array(
-      Math.ceil(
-        this.repo.getProducts(this.selectCateory).length / this.productsPerPage
-      )
-    )
-      .fill(0)
-      .map((x, i) => i + 1);
+  // get pageNumbers(): number[] {
+  //   return Array(
+  //     Math.ceil(
+  //       this.repo.getProducts(this.selectCateory).length / this.productsPerPage
+  //     )
+  //   )
+  //     .fill(0)
+  //     .map((x, i) => i + 1);
+  // }
+
+  get pageCount(): number {
+    return Math.ceil(
+      this.repo.getProducts(this.selectCateory).length / this.productsPerPage
+    );
   }
 
   changeCategory(newCategory: string | null = null): void {
